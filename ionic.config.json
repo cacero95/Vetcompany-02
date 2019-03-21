@@ -1,6 +1,8 @@
 {
   "name": "02.Vetcompany",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "d59d7e81"
 }

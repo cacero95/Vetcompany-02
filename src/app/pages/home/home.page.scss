@@ -1,0 +1,39 @@
+.imagen {
+    margin-top: 20px;
+    height: 200px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.imagen2 {
+    height: 200px;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+ion-item:hover {
+    background-color: aquamarine;
+}
+
+.card-background-page {
+    ion-card {
+        position: relative;
+        text-align: center;
+    }
+    .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #000000;
+    }
+    .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #000000;
+    }
+}

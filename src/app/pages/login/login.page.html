@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar text-center>
+        <ion-buttons>
+            <ion-back-button slot="start" defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Login</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content text-center padding>
+    <h2>Digite su:</h2>
+    <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" [(ngModel)]="correo"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <ion-button expand="full" (click)="login()">
+        Log In
+    </ion-button>
+
+</ion-content>

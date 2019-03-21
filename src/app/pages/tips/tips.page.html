@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar color="dark" text-center>
+        <ion-buttons>
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Tips para tu mascota</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card *ngFor="let tip of tips">
+        <ion-card-header>
+            <ion-card-subtitle>{{tip.titulo}}</ion-card-subtitle>
+            <ion-card-title>{{tip.titulo}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            {{tip.corta}}
+        </ion-card-content>
+        <ion-button expand="full" color="dark" (click)="completo(tip)">
+            Ver completo
+        </ion-button>
+
+    </ion-card>
+
+</ion-content>

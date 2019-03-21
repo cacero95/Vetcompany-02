@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title *ngIf="!user">Vetcompany</ion-title>
+        <ion-title *ngIf="user">{{user.name}}</ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!user" color="gold" padding class="card-background-page">
+
+
+    <ion-button (click)="map()" class="imagen" color="transparent">
+        <img style="border-radius: 20px" src="assets/img/perro_viaje.jpg">
+        <div class="card-title">Encuentra</div>
+        <div class="card-subtitle">El mejor sitio para mascotas</div>
+    </ion-button>
+
+
+    <ion-button class="imagen" (click)="tips()" color="transparent">
+        <img style="border-radius: 20px" src="assets/img/pet.jpg">
+        <div class="card-title">Los mejores</div>
+        <div class="card-subtitle">Tips para mascota</div>
+    </ion-button>
+
+</ion-content>
+<ion-content style="background-color: azure;" *ngIf="user">
+
+    <ion-list *ngIf="user.nMascotas > 0 && user.type == 'mascota' ">
+        <ion-item *ngFor="let pet of user.mascotas">
+            <ion-card>
+                <img [src]="pet.url">
+                <ion-card-content>
+                    <ion-card-title>{{pet.pet_name}}</ion-card-title>
+                    <h2 color="primary">Padre:<small>{{user.name}}-{{user.apellido}}
+                    </small>
+                    </h2>
+                    <h3 color="primary">Raza:<small>{{pet.raza}}</small></h3>
+                    <ion-row>
+                        <ion-col text-right>
+                            <ion-button (click)="shared(pet.url)" text-right size="small" fill="clear" color="primary">
+                                <ion-icon slot="end" name="share-alt"></ion-icon>
+                                Compartir
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+        </ion-item>
+    </ion-list>
+    <ion-item *ngIf="user.nMascotas == 0 && user.type == 'mascota' ">
+        <ion-label>{{user.name}}</ion-label>
+    </ion-item>
+    <!--en esta zona se vera las propiedades de la institucion de mascota-->
+
+
+    <ion-item-group style="margin-top: 20px;" *ngIf="user.type == 'institución'">
+        <ion-item-divider color="light">Gestiona tus Usuarios</ion-item-divider>
+        <ion-item (click)="open('agregar_usuarios')">Agrega</ion-item>
+        <ion-item *ngIf="user.user" (click)="open('eliminar_usuarios')">Elimina</ion-item>
+        <ion-item *ngIf="user.user" (click)="open('editar_usuarios')">Edita</ion-item>
+        <ion-item *ngIf="user.user" (click)="open('ver_usuarios')">Ver</ion-item>
+    </ion-item-group>
+    <ion-item-group *ngIf="user.type == 'institución'">
+        <ion-item-divider color="light">Gestiona tus Servicios</ion-item-divider>
+        <ion-item (click)="open('agregar_servicios')">Agrega</ion-item>
+        <ion-item (click)="open('eliminar_servicios')">
+            <ion-label>Elimina</ion-label>
+        </ion-item>
+        <ion-item (click)="open()">Ver</ion-item>
+
+        <!---
+        puede ser una opcion para despues en un item
+        <ion-item>
+            <ion-label>Toggle</ion-label>
+            <ion-toggle slot="end"></ion-toggle>
+        </ion-item>
+        -->
+
+    </ion-item-group>
+
+</ion-content>

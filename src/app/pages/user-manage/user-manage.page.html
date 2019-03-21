@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons>
+            <ion-back-button (click)="close()" defautHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>user_manage</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="servicio == 'ver'">
+    <ion-list>
+        <ion-card *ngFor="let usuario of user.users">
+            <ion-item>
+                <ion-avatar item-start>
+                  <img [src]="usuario.mascotas[contador].url">
+                </ion-avatar>
+                <h2>{{usuario.name}}</h2>
+                <p>Tiene {{usuario.nMascotas}} mascotas</p>
+              </ion-item>
+            
+              <img [src]="usuario.mascotas[contador].url">
+            
+              <ion-card-content>
+                <p>Direccion: {{usuario.direccion}}
+                  correo: {{usuario.correo}}
+                </p>
+              </ion-card-content>
+            
+              <ion-row>
+                <ion-col>
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>12 Likes</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>4 Comments</div>
+                  </button>
+                </ion-col>
+                <ion-col align-self-center text-center>
+                  <ion-note>
+                    11h ago
+                  </ion-note>
+                </ion-col>
+              </ion-row>
+        </ion-card>
+    </ion-list>
+</ion-content>

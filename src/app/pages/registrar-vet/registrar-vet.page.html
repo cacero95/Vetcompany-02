@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-back-button (click)="close()"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Registrar</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="card-background-page" padding>
+    <h2 text-center>Datos de tu institución</h2>
+    <ion-button (click)="select_imagen()" class="imagen" color="gold">
+        <img *ngIf="imagePreview == ''" style="border-radius: 20px; width: 80%;" src="assets/img/shalo_logo.png" alt="shalo_logo">
+        <img *ngIf="imagePreview != ''" style="border-radius: 20px; width: 80%;" [src]="imagePreview">
+
+        <div class="card-title">Click</div>
+        <div class="card-subtitle">Para subir foto</div>
+    </ion-button>
+    <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input #nombre type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Dirección</ion-label>
+        <ion-input #direccion type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input #Telefono type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Correo de contacto</ion-label>
+        <ion-input type="email" #email></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" #password></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="entrar(nombre.value, direccion.value, Telefono.value, email.value, password.value)">
+        Registrar
+    </ion-button>
+</ion-content>

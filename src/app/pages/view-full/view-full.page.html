@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar text-center color="dark">
+        <ion-title>view_full</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>{{tip.titulo}}</ion-card-subtitle>
+            <ion-card-title>{{tip.titulo}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            {{tip.descripcion}}
+        </ion-card-content>
+
+
+    </ion-card>
+
+
+    <ion-button (click)="close()" text-right size="small" fill="clear" color="primary">
+        <ion-icon slot="end" name="share-alt"></ion-icon>
+        cerrar
+    </ion-button>
+</ion-content>
